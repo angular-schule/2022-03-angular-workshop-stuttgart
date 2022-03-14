@@ -4,10 +4,9 @@ import { Book } from '../shared/book';
 @Component({
   selector: 'br-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-
   books: Book[] = [];
 
   constructor() {
@@ -17,21 +16,19 @@ export class DashboardComponent implements OnInit {
         title: 'Angular',
         description: 'Grundlagen und mehr',
         price: 36.9,
-        rating: 5
+        rating: 5,
       },
       {
         isbn: '456',
         title: 'Vue.js',
         description: 'Das andere Framework',
         price: 32.9,
-        rating: 3
-      }
-    ]
+        rating: 3,
+      },
+    ];
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
 
 /*
