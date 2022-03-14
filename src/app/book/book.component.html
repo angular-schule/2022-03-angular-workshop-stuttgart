@@ -1,9 +1,17 @@
+<div class="card mb-4" *ngIf="book">
+  <div class="card-body bg-light">
+    <div class="card-title">
+      <h2>
+        {{ book.title }}
+        <span class="badge bg-secondary">{{ book.rating }}</span>
+      </h2>
+    </div>
+    <p>{{ book.description }}</p>
+    <p>Preis: {{ book.price }}</p>
 
-<ng-container *ngIf="book">
-  <h2>{{ book.title }}</h2>
-
-  <p>
-    {{ book.description }}
-  </p>
-</ng-container>
-
+    <!--
+    <button class="btn btn-green"> + </button>
+    <button class="btn btn-red"> – </button>
+    -->
+  </div>
+</div>
