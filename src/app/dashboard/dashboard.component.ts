@@ -33,8 +33,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {}
 
   doRateUp(book: Book) {
-
-
     const index = this.books.findIndex((b) => {
       return b.isbn === book.isbn;
     });
@@ -44,14 +42,34 @@ export class DashboardComponent implements OnInit {
       return;
     }
 
-    book.rating++;
+    // book.rating++; // Achtung: Dieser Code ist "mutable"!
+    // Neues Buch mit verändertem Rating erzeugen
+    // dadurch vermeiden wir Seiteneffekte
+    // Stichwort: Immutability
+    const newBook = {
+      ...book,
+      rating: book.rating + 1
+    };
 
     // in der Liste ersetzen
-    this.books[index] = book;
+    this.books[index] = newBook;
   }
 
   doRateDown(book: Book) {
-    console.log('DOWN', book);
+    const index = this.books.findIndex((b) => {
+      return b.isbn === book.isbn;
+    });
+
+    if (index === -1) {
+      return;
+    }
+
+    const newBook = {
+      ...book,
+      rating: book.rating - 1
+    };
+
+    this.books[index] = newBook;
   }
 }
 
@@ -94,3 +112,15 @@ const myBook2: BookI = {
 
 
 */
+
+
+
+const foo = {
+  title: 'Angular',
+  isbn: '123'
+};
+
+const bar = foo;
+
+
+bar.title = 'Vue.js';
