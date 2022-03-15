@@ -9,6 +9,24 @@
     <p>{{ book.description }}</p>
     <p>Preis: {{ book.price | currency:'EUR' }}</p>
 
+    <div>
+      Autoren:
+      <ul>
+        <li *ngFor="let author of book.authors">{{ author }}</li>
+      </ul>
+
+      {{ book.authors.join(', ') }}
+
+      <hr>
+
+      <ng-container *ngFor="let author of book.authors; last as l">
+        {{ author }}<ng-container *ngIf="!l">, </ng-container>
+      </ng-container>
+    </div>
+
+
+
+
     <!--
     <button class="btn btn-green"> + </button>
     <button class="btn btn-red"> – </button>

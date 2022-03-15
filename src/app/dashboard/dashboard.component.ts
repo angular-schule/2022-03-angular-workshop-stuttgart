@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
         description: 'Grundlagen und mehr',
         price: 36.9,
         rating: 5,
+        authors: ['Ferdinand Malcher', 'Danny Koppenhagen', 'Johannes Hoppe']
       },
       {
         isbn: '456',
@@ -24,6 +25,7 @@ export class DashboardComponent implements OnInit {
         description: 'Das andere Framework',
         price: 32.9,
         rating: 3,
+        authors: ['Evan You']
       },
     ];
   }
@@ -55,17 +57,18 @@ interface BookI {
 }
 
 const myBook2: BookI = {
-  isbn: '1234',
-  title: ''
+  isbn: '123',
+  title: 'Angular'
 };
 
 
 
 // JSON
 {
-  "title": "Angular",
-  "isbn": "123"
+  "isbn": "123",
+  "title": "Angular"
 }
+
 
 
 */
