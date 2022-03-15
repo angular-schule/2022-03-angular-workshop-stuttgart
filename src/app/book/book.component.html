@@ -11,25 +11,20 @@
 
     <div>
       Autoren:
-      <ul>
+      <!--<ul>
         <li *ngFor="let author of book.authors">{{ author }}</li>
-      </ul>
+      </ul>-->
 
       {{ book.authors.join(', ') }}
 
-      <hr>
+      <!--<hr>
 
       <ng-container *ngFor="let author of book.authors; last as l">
         {{ author }}<ng-container *ngIf="!l">, </ng-container>
-      </ng-container>
+      </ng-container>-->
     </div>
 
-
-
-
-    <!--
-    <button class="btn btn-green"> + </button>
-    <button class="btn btn-red"> – </button>
-    -->
+    <button class="btn btn-green" (click)="doRateUp()"> + </button>
+    <button class="btn btn-red" (click)="doRateDown()"> – </button>
   </div>
 </div>

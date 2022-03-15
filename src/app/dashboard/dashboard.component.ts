@@ -31,6 +31,28 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  doRateUp(book: Book) {
+
+
+    const index = this.books.findIndex((b) => {
+      return b.isbn === book.isbn;
+    });
+
+    // Early Exit, wenn kein Buch gefunden
+    if (index === -1) {
+      return;
+    }
+
+    book.rating++;
+
+    // in der Liste ersetzen
+    this.books[index] = book;
+  }
+
+  doRateDown(book: Book) {
+    console.log('DOWN', book);
+  }
 }
 
 /*
