@@ -2,7 +2,14 @@
   <div class="card-body bg-light">
     <div class="card-title">
       <h2>
-        {{ book.title }}
+        <!--
+        links eckige Klammern = rechts Ausdruck
+        links KEINE eckige Klammern = rechts String
+        -->
+        <!--<a [routerLink]="'/books/details/' + book.isbn">{{ book.title }}</a>-->
+        <!--<a routerLink="/books/details/{{ book.isbn }}">{{ book.title }}</a>-->
+        <a [routerLink]="['/books', 'details', book.isbn]">{{ book.title }}</a>
+
         <span class="badge bg-secondary">{{ book.rating }}</span>
       </h2>
     </div>
