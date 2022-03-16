@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Book } from '../shared/book';
 import { BookStoreService } from '../shared/book-store.service';
@@ -15,11 +15,21 @@ export class BookCreateComponent implements OnInit {
 
   constructor(private service: BookStoreService, private router: Router) {
     this.bookForm = new FormGroup({
-      isbn: new FormControl(''),
-      title: new FormControl(''),
+      isbn: new FormControl('', [
+        Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(13)
+      ]),
+      title: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(30)
+      ]),
       description: new FormControl(''),
-      rating: new FormControl(1),
-      price: new FormControl(0),
+      rating: new FormControl(1, [
+        Validators.min(1),
+        Validators.max(5),
+      ]),
+      price: new FormControl(0, Validators.min(0)),
     });
   }
 
