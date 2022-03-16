@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { filter, interval, map, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'br-root',
@@ -11,6 +11,21 @@ export class AppComponent {
 
   constructor() {
 
+    // of('A', 'B', 'C')
+
+    interval(1000).pipe(
+      map(e => e * 3), // Vielfache von 3
+      filter(e => e % 2 === 0) // nur gerade Zahlen
+    ).subscribe({
+      next: e => console.log(e),
+      complete: () => console.log('COMPLETE')
+    });
+
+    [1,2,3].map(e => e * 10); // [10, 20, 30]
+    [10, 20, 30].filter(e => e > 15); // [20, 30]
+
+    ///////////////////////
+
     function producer(subscriber: any) {
       subscriber.next('HALLO!');
       subscriber.next(Math.random());
@@ -18,7 +33,7 @@ export class AppComponent {
       subscriber.next(7);
 
       setTimeout(() => {
-        subscriber.error('BÖSER FEHLER!');
+        subscriber.complete();
       }, 2000);
     }
 
