@@ -10,7 +10,7 @@
         <!--<a routerLink="/books/details/{{ book.isbn }}">{{ book.title }}</a>-->
         <a [routerLink]="['/books', 'details', book.isbn]">{{ book.title }}</a>
 
-        <span class="badge bg-secondary">{{ book.rating }}</span>
+        <span class="badge bg-secondary ms-2">{{ book.rating }}</span>
       </h2>
     </div>
     <p>{{ book.description }}</p>
