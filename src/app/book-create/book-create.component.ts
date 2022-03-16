@@ -33,8 +33,7 @@ export class BookCreateComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   submitForm() {
     console.log(this.bookForm.value);

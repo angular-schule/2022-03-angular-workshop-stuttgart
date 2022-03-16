@@ -29,7 +29,8 @@
     <input type="number" formControlName="price" class="form-control" id="priceInput">
   </div>
 
-  <button type="submit" class="btn btn-danger">Abschicken</button>
+  <button type="submit" class="btn btn-danger" [disabled]="bookForm.invalid">Abschicken</button>
+  valid: {{ bookForm.valid }}
 
 </form>
 
