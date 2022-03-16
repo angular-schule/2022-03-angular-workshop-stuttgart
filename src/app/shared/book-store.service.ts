@@ -32,7 +32,8 @@ export class BookStoreService {
         description: 'Grundlagen und mehr',
         price: 36.9,
         rating: 5,
-        authors: ['Ferdinand Malcher', 'Danny Koppenhagen', 'Johannes Hoppe']
+        authors: ['Ferdinand Malcher', 'Danny Koppenhagen', 'Johannes Hoppe'],
+        firstThumbnailUrl: '',
       },
       {
         isbn: '456',
@@ -40,7 +41,8 @@ export class BookStoreService {
         description: 'Das andere Framework',
         price: 32.9,
         rating: 3,
-        authors: ['Evan You']
+        authors: ['Evan You'],
+        firstThumbnailUrl: ''
       },
     ];
   }

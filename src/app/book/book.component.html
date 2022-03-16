@@ -3,8 +3,8 @@
     <div class="card-title">
       <h2>
         <!--
-        links eckige Klammern = rechts Ausdruck
-        links KEINE eckige Klammern = rechts String
+        links eckige Klammern = rechts Ausdruck: [foo]="expression"
+        links KEINE eckige Klammern = rechts String: foo="string"
         -->
         <!--<a [routerLink]="'/books/details/' + book.isbn">{{ book.title }}</a>-->
         <!--<a routerLink="/books/details/{{ book.isbn }}">{{ book.title }}</a>-->
@@ -29,6 +29,10 @@
       <ng-container *ngFor="let author of book.authors; last as l">
         {{ author }}<ng-container *ngIf="!l">, </ng-container>
       </ng-container>-->
+
+      <div>
+        <img [src]="book.firstThumbnailUrl" style="width: 10vw">
+      </div>
     </div>
 
     <button class="btn btn-green" (click)="doRateUp()"> + </button>

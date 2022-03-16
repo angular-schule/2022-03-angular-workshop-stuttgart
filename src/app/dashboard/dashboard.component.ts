@@ -8,6 +8,8 @@ import { BookStoreService } from '../shared/book-store.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  today = Date.now();
+
   books: Book[] = [];
 
   constructor(private service: BookStoreService) {
