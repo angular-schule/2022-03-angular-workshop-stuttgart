@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Book } from '../shared/book';
 import { BookStoreService } from '../shared/book-store.service';
 
@@ -12,7 +13,7 @@ export class BookCreateComponent implements OnInit {
 
   bookForm: FormGroup;
 
-  constructor(private service: BookStoreService) {
+  constructor(private service: BookStoreService, private router: Router) {
     this.bookForm = new FormGroup({
       isbn: new FormControl(''),
       title: new FormControl(''),
@@ -35,7 +36,18 @@ export class BookCreateComponent implements OnInit {
     };
 
     this.service.create(newBook).subscribe(book => {
-      // TODO
+      // 1. Option: zurücksetzen
+      this.bookForm.reset({
+        isbn: '',
+        title: '',
+        description: '',
+        rating: 1,
+        price: 0
+      });
+
+      // 2. Option: wegnavigieren
+      this.router.navigate(['/books', 'details', book.isbn]); // [routerLink]="['/books', 'details', book.isbn]"
+      // this.router.navigateByUrl('/books'); // routerLink="/books"
     });
 
   }
