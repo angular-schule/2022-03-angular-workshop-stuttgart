@@ -16,6 +16,7 @@ export class BookDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private service: BookStoreService
   ) {
+    // PULL / synchron
     const isbn = this.route.snapshot.paramMap.get('isbn'); // /books/details/:isbn
     if (isbn) {
       console.log(isbn);
@@ -24,6 +25,12 @@ export class BookDetailsComponent implements OnInit {
         this.book = book;
       });
     }
+
+    // PUSH / asynchron
+    this.route.paramMap.subscribe(params => {
+      const isbn = params.get('isbn');
+      console.log('PUSH', isbn);
+    });
   }
 
   ngOnInit(): void {
